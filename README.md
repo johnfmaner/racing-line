@@ -51,9 +51,9 @@ Lateral forces: m(v) v^2 /r > mu m g => m_0 (1+v^2 / C_down) v^2 / r > mu m g =>
 ## Defining a track
 
 ### Track limits
-The track must have a definite inside and outside. For ease of calculation, the track should be composed of an equal number of "inside" and "outside" points. This will require choosing an appropriate spacing between points along the "inside" and "outside" curves. 
+The track must have a definite inside and outside. For ease of calculation, a set of points will be defined known as the midpoint. From each midpoint, two points will be generated at a desired distance from the midpoint to create an "inside" and an "outside". 
 
-TBD
+TBD. 
 
 ## Algorithm 
 
