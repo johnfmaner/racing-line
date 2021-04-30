@@ -1,4 +1,5 @@
 import numpy as np 
+import matplotlib.pyplot as plt
 
 class Track(object):
     def __init__(self,midpoints:list,width:float):
@@ -92,18 +93,24 @@ class Track(object):
         lim1 = [i + c0 - c1 for i in lim1]
         lim2 = [j + c0 - c2 for j in lim2]
 
-        #lim1.append(lim1[0]) #not necessary if user specifies beginning point = end point
-        #lim2.append(lim2[0]) 
-
         self.interior = lim1
-        self.exterior = lim2 
-#        self.interior = lim1.append(lim1[0]) #append the first point to make a closed shape. 
-#        self.exterior = lim2.append(lim2[0]) 
+        self.exterior = lim2  
 
-    def plot_track(self):
-        """automatically plot the midpoint, inner track limit, and outer track limit"""
-        pass 
+    def track_figure(self):
+        """create a figure which can be plotted with plt.show()"""
 
+        #this is still not as clean as I would like -- this should be a 
+        #one-liner to plot the track, but returning the figure may be the
+        #better idea in the long run so I can add the racing line to the
+        #plot figure. For now, this is ok. 
         
+        xm, ym = zip(*self.midpoints) #create lists of x and y values for plotting
+        xi, yi = zip(*self.interior)
+        xo, yo = zip(*self.exterior)
 
+        f, ax = plt.subplots()
+        ax.plot(xm,ym)
+        ax.plot(xi,yi)#c='r')
+        ax.plot(xo,yo)
 
+        return ax
